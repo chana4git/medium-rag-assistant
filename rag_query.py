@@ -375,6 +375,10 @@ def build_augmented_prompt(
         "the article groups and return at most 3, "
         "even if more than 3 article groups are provided. ",
         "",
+        "If the user asks to return only titles, return only the titles. "
+        "Do not add explanations, quotes, bullets with extra text, or "
+        "justifications for title-only requests.",
+        "",
         "If the user asks about one article, use the relevant article group and "
         "its passages.",
         "",

@@ -309,6 +309,8 @@ The retrieved context is grouped by article. Multiple passages under the same ar
 
 If the user asks for multiple article titles, choose the best matching distinct article titles from the article groups and return at most 3, even if more than 3 article groups are provided.
 
+If the user asks to return only titles, return only the titles. Do not add explanations, quotes, bullets with extra text, or justifications for title-only requests.
+
 If the user asks about one article, use the relevant article group and its passages.
 
 If the user asks for a recommendation, compare the retrieved article groups and recommend the article that best matches the user's need based on the provided passages. Do not assume the first article is automatically the best if another article is better supported.
