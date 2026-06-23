@@ -35,6 +35,10 @@ EXPECTED_EMBEDDING_DIMENSION = 1536
 
 UNKNOWN_RESPONSE = "I don’t know based on the provided Medium articles data."
 
+REQUIRED_SYSTEM_PROMPT_SECTION = f"""
+You are a Medium-article assistant that answers questions strictly and only based on the Medium articles dataset context provided to you (metadata and article passages). You must not use any external knowledge, the open internet, or information that is not explicitly contained in the retrieved context. If the answer cannot be determined from the provided context, respond: “{UNKNOWN_RESPONSE}” Always explain your answer using the given context, quoting or paraphrasing the relevant article passage or metadata when helpful.
+""".strip()
+
 
 # ----------------------------
 # App setup
@@ -277,9 +281,10 @@ def build_augmented_prompt(question: str, article_groups: List[Dict]) -> Dict[st
     context_text = build_context_text(article_groups)
 
     system_prompt = f"""
-You are a Medium-article assistant that answers questions strictly and only based on the Medium articles dataset context provided to you.
+Required assignment system-prompt section:
+{REQUIRED_SYSTEM_PROMPT_SECTION}
 
-You must not use external knowledge, the open internet, or information that is not explicitly contained in the retrieved context.
+Additional implementation instructions:
 
 Use the retrieved article content and metadata to answer the user's question.
 
