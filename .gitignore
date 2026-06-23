@@ -1,0 +1,17 @@
+# Secrets
+.env
+
+# Virtual environment
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local data files - do not upload dataset or generated chunks
+data/*.csv
+data/*.jsonl
+
+# IDE / OS files
+.idea/
+.DS_Store
